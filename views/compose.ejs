@@ -1,0 +1,30 @@
+
+<%- include("partials/header"); -%>
+    <h1>Tell US ABOUT YOU</h1>
+    <form class="" action="/compose" method="post">
+
+      <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" name="postName">
+        <label>Last Name</label>
+        <input class="form-control" type="text" name="postLastname">
+        <label>age</label>
+        <input class="form-control" type="date" name="postAge">
+        <label>School</label>
+        <input class="form-control" type="text" name="postSchool">
+        <label>Country</label>
+        <input class="form-control" type="text" name="postCountry">
+        <label>Major</label>
+        <input class="form-control" type="text" name="postMajor">
+        <label>Pet name </label>
+        <input class="form-control" type="text" name="postPet">
+
+
+
+        <br><label>Tell US SOMETHING: </label>
+        <textarea class="form-control" name="postBody" rows="5" cols="10"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit" name="button">Publish</button>
+    </form>
+
+<%- include("partials/footer"); -%>

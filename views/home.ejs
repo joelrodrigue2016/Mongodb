@@ -1,0 +1,28 @@
+
+<%- include("partials/header"); -%>
+
+    <h1>Home</h1>
+    <p> <%= startingContent %> </p>
+
+
+  <%  posts.forEach(function(post){ %>
+
+    <h1><%=post.name%></h1>
+    <!--<h5><%=post.lastname%></h5>-->
+    <!--<h5><%=post.age%></h5> -->
+    <!--<h5><%=post.school%></h5>-->
+    <!--<h5><%=post.country%></h5>-->
+    <!--<h5><%=post.major%></h5>-->
+    <!--<h5><%=post.gender%></h5>-->
+    <!--<h5><%=post.pet%></h5>-->
+    <p>
+    <%=post.content.substring(0, 100) + " ..."%>
+
+    <a href="/posts/<%=post._id%>">Read More</a>
+    </p>
+
+
+    <% }) %>
+
+
+<%- include("partials/footer"); -%>
