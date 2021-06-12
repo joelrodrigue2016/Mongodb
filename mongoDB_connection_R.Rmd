@@ -1,0 +1,63 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+
+
+```{r}
+# Use MongoLite library:
+#install.packages("mongolite")
+library(ggplot2)
+library(dplyr)
+library(maps)
+library(ggmap)
+library(mongolite)
+library(lubridate)
+library(gridExtra)
+
+library(jsonlite)
+library(mongolite)
+ 
+# Connect to the database and the desired collection as root:
+collection <-"sales"
+database <- "mongodbVSCodePlaygroundDB"
+url <- "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false"
+
+
+db <- mongo(collection = collection, db = database, url = url)
+
+print("Connection has been established!")
+
+```
+
+```{r}
+# Read the desired documents i.e. Tweets inside one dataframe:
+documents <- db$find()
+documents
+
+```
+
+```{r}
+library(esquisse)
+#esquisse::esquisser(documents)
+
+
+ggplot(documents) +
+  aes(x = item, y = quantity, group = price) +
+  geom_boxplot(shape = "circle", fill = "#B00606") +
+  labs(
+    x = "X label",
+    y = "Y label",
+    title = "Title",
+    subtitle = "le: Subtitle",
+    caption = "Caption"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+
+```
